@@ -9,7 +9,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Hide scrollbar on mobile */
 @media (max-width: 768px) {
   ::-webkit-scrollbar {
     width: 0px;
@@ -67,4 +66,12 @@ body {
 .active\:cursor-grabbing .social-icon-btn,
 [class*="cursor-grab"] .social-icon-btn {
   cursor: pointer !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

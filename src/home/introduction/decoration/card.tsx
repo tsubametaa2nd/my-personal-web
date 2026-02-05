@@ -1,6 +1,8 @@
 import { createSignal, Show, onMount, onCleanup } from "solid-js";
 import { animate } from "motion";
 import RotatingText from "./text";
+import { useNavigate } from "@solidjs/router";
+import Tooltip from "../../../layouts/tooltip";
 import {
   User,
   Code,
@@ -23,6 +25,7 @@ interface LanyardCardProps {
 }
 
 const LanyardCard = (props: LanyardCardProps) => {
+  const navigate = useNavigate();
   const [isFlipped, setIsFlipped] = createSignal(false);
   const [isDragging, setIsDragging] = createSignal(false);
 
@@ -230,7 +233,6 @@ const LanyardCard = (props: LanyardCardProps) => {
     const endX = startX + cardX;
     const endY = 35 + cardY;
 
-    // Use cubic bezier for smoother curve
     return `M ${startX} ${startY} C ${controlX1} ${controlY1}, ${controlX2} ${controlY2}, ${endX} ${endY}`;
   };
 
@@ -336,8 +338,21 @@ const LanyardCard = (props: LanyardCardProps) => {
               <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
             </div>
 
-            <div class="absolute top-3 sm:top-4 md:top-5 right-3 sm:right-4 md:right-5 text-neutral-600">
-              <ScanLine size={18} class="sm:w-5 sm:h-5" opacity={0.5} />
+            <div class="absolute top-3 sm:top-4 md:top-5 right-3 sm:right-4 md:right-5 z-20">
+              <Tooltip content="View Gallery" position="left">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate("/gallery");
+                  }}
+                  onPointerDown={(e) => e.stopPropagation()}
+                  onMouseDown={(e) => e.stopPropagation()}
+                  class="text-neutral-600 opacity-50 hover:opacity-100 transition-opacity cursor-pointer"
+                >
+                  <ScanLine size={18} class="sm:w-5 sm:h-5" />
+                </button>
+              </Tooltip>
             </div>
 
             <div
