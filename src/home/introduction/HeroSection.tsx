@@ -25,7 +25,7 @@ const HeroSection = () => {
           name="Alvin Putra"
           roles={["Backend Developer", "UI/UX Designer"]}
           description="I am a dedicated Backend Developer and UI/UX Designer with a passion for building robust applications and intuitive interfaces. I love solving complex problems with code."
-          photoUrl="https://github.com/shadcn.png"
+          photoUrl="/assets/profile/my.jpeg"
         />
       </Motion.div>
     </div>
