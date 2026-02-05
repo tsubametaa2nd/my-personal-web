@@ -340,7 +340,10 @@ const LanyardCard = (props: LanyardCardProps) => {
               <ScanLine size={18} class="sm:w-5 sm:h-5" opacity={0.5} />
             </div>
 
-            <div class="absolute top-10 sm:top-12 md:top-16 left-1/2 -translate-x-1/2 z-10 group">
+            <div
+              class="absolute top-10 sm:top-12 md:top-16 left-1/2 -translate-x-1/2 z-10 group backface-hidden"
+              style={{ "backface-visibility": "hidden" }}
+            >
               <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full p-1 sm:p-1.5 bg-gradient-to-br from-cyan-400 via-white to-purple-500 shadow-xl relative">
                 <div class="w-full h-full rounded-full bg-neutral-900 border-4 border-neutral-900 overflow-hidden relative">
                   <Show
