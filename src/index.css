@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar on mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+  }
+
+  html {
+    scrollbar-width: none;
+  }
+}
+
+@media (min-width: 769px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 5px;
+    border: 2px solid #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #10b981;
+  }
+
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #334155 #0f172a;
+  }
+}
+.social-icons-area {
+  cursor: default !important;
+  position: relative;
+  z-index: 100;
+}
+
+.social-icon-btn {
+  cursor: pointer !important;
+  position: relative;
+  z-index: 101;
+}
+
+.social-icon-btn:hover,
+.social-icon-btn:active,
+.social-icon-btn:focus {
+  cursor: pointer !important;
+}
+
+.cursor-grab .social-icon-btn,
+.active\:cursor-grabbing .social-icon-btn,
+[class*="cursor-grab"] .social-icon-btn {
+  cursor: pointer !important;
+}
