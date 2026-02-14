@@ -67,12 +67,20 @@ const ContactSection: Component = () => {
     if (!formData().name || !formData().message) return;
 
     setStatus("sending");
-    // Simulate API delay
+
+    const recipient = "alvinferina2023@student.unas.ac.id";
+    const subject = formData().subject || "No Subject";
+    const body = `hello, i'm ${formData().name} and ${formData().message}`;
+
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.open(gmailLink, "_blank");
+
     setTimeout(() => {
       setStatus("success");
       setFormData({ name: "", subject: "", message: "" });
       setTimeout(() => setStatus("idle"), 3000);
-    }, 2000);
+    }, 1000);
   };
 
   const updateField = (field: keyof typeof formData, value: string) => {
@@ -85,7 +93,6 @@ const ContactSection: Component = () => {
       class="w-full py-12 sm:py-16 md:py-20 px-4 md:px-8 relative z-10"
     >
       <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-        {/* Left Column: Context & Info */}
         <div class="space-y-6 md:space-y-8 order-2 lg:order-1">
           <div class="relative">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
@@ -101,7 +108,6 @@ const ContactSection: Component = () => {
           </p>
 
           <div class="flex flex-wrap gap-4 sm:gap-6 mt-8 sm:mt-12">
-            {/* Email */}
             <div class="group relative">
               <a
                 href="mailto:contact@alvin.dev"
@@ -109,7 +115,6 @@ const ContactSection: Component = () => {
               >
                 <Mail size={20} class="sm:w-6 sm:h-6" />
               </a>
-              {/* Tooltip */}
               <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-max opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-50">
                 <div class="bg-[#0d1117] border border-slate-700/50 rounded-xl p-4 shadow-2xl backdrop-blur-md flex flex-col items-center gap-2 relative">
                   <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">
@@ -118,18 +123,15 @@ const ContactSection: Component = () => {
                   <span class="text-white font-mono hover:text-emerald-400 transition-colors">
                     contact@alvin.dev
                   </span>
-                  {/* Arrow */}
                   <div class="w-3 h-3 bg-[#0d1117] border-r border-b border-slate-700/50 rotate-45 absolute -bottom-1.5 left-1/2 -translate-x-1/2"></div>
                 </div>
               </div>
             </div>
 
-            {/* GitHub */}
             <div class="group relative">
               <div class="w-12 h-12 sm:w-14 sm:h-14 bg-slate-800/50 rounded-xl sm:rounded-2xl border border-white/5 flex items-center justify-center text-slate-400 group-hover:text-white group-hover:border-white/50 group-hover:bg-white/5 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-white/10">
                 <Github size={20} class="sm:w-6 sm:h-6" />
               </div>
-              {/* Tooltip */}
               <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-max opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-50">
                 <div class="bg-[#0d1117] border border-slate-700/50 rounded-xl p-4 shadow-2xl backdrop-blur-md flex flex-col items-center gap-2 relative">
                   <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">
@@ -152,13 +154,11 @@ const ContactSection: Component = () => {
                       <span>@tsubametaa2nd</span>
                     </a>
                   </div>
-                  {/* Arrow */}
                   <div class="w-3 h-3 bg-[#0d1117] border-r border-b border-slate-700/50 rotate-45 absolute -bottom-1.5 left-1/2 -translate-x-1/2"></div>
                 </div>
               </div>
             </div>
 
-            {/* LinkedIn */}
             <div class="group relative">
               <a
                 href="https://linkedin.com/in/alvinputra"
@@ -167,7 +167,6 @@ const ContactSection: Component = () => {
               >
                 <Linkedin size={20} class="sm:w-6 sm:h-6" />
               </a>
-              {/* Tooltip */}
               <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-max opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-50">
                 <div class="bg-[#0d1117] border border-slate-700/50 rounded-xl p-4 shadow-2xl backdrop-blur-md flex flex-col items-center gap-2 relative">
                   <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">
@@ -176,7 +175,6 @@ const ContactSection: Component = () => {
                   <span class="text-white font-mono hover:text-blue-400 transition-colors">
                     Alvin Putra
                   </span>
-                  {/* Arrow */}
                   <div class="w-3 h-3 bg-[#0d1117] border-r border-b border-slate-700/50 rotate-45 absolute -bottom-1.5 left-1/2 -translate-x-1/2"></div>
                 </div>
               </div>
@@ -184,7 +182,6 @@ const ContactSection: Component = () => {
           </div>
         </div>
 
-        {/* Right Column: Terminal Form */}
         <Motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           inView={{ opacity: 1, scale: 1 }}
@@ -195,10 +192,8 @@ const ContactSection: Component = () => {
             ref={terminalRef}
             class="w-full bg-[#0d1117] rounded-lg sm:rounded-xl overflow-hidden shadow-2xl border border-slate-700/50 flex flex-col font-mono text-xs sm:text-sm relative group min-h-[350px] sm:min-h-[380px] md:min-h-[400px]"
           >
-            {/* Glow Effect */}
             <div class="absolute -inset-1 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 blur transition duration-1000 pointer-events-none"></div>
 
-            {/* macOS-style Header */}
             <div class="bg-slate-800/50 border-b border-white/5 px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between relative z-10 backdrop-blur-sm">
               <div class="flex items-center gap-1.5 sm:gap-2">
                 <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
@@ -210,12 +205,10 @@ const ContactSection: Component = () => {
                 <span class="hidden xs:inline">bash — contact-form</span>
                 <span class="xs:hidden">terminal</span>
               </div>
-              <div class="w-8 sm:w-10"></div> {/* Spacer for alignment */}
+              <div class="w-8 sm:w-10"></div>
             </div>
 
-            {/* Terminal Body */}
             <div class="p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4 relative z-10 bg-[#0d1117]/95 flex-1 flex flex-col">
-              {/* Command Line Prompt */}
               <div class="flex items-center gap-2 sm:gap-3 text-slate-300 mb-1 sm:mb-2 flex-wrap">
                 <span class="text-emerald-400 font-bold text-xs sm:text-sm">
                   visitor@uta.dev:~$

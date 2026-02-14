@@ -19,9 +19,9 @@ const Navbar: Component = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "About", href: "#about" },
-    { name: "Stack", href: "#stack" },
-    { name: "Projects", href: "#projects" },
+    { name: "About", href: "/#about" },
+    { name: "Stack", href: "/#stack" },
+    { name: "Projects", href: "/#projects" },
   ];
 
   const handleScroll = () => {
@@ -34,7 +34,7 @@ const Navbar: Component = () => {
 
     const isHomePage = location.pathname === "/";
 
-    if (href === "/" || href === "#home") {
+    if (href === "/") {
       if (!isHomePage) {
         navigate("/");
         window.scrollTo(0, 0);
@@ -45,15 +45,25 @@ const Navbar: Component = () => {
       return;
     }
 
-    if (href.startsWith("#")) {
+    // Handle hash links (e.g. /#about or #about)
+    if (href.includes("#")) {
+      const hash = href.startsWith("/") ? href.substring(1) : href;
+      const targetId = hash.substring(1);
+
       if (isHomePage) {
-        const element = document.querySelector(href);
+        const element = document.querySelector("#" + targetId);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
-          setActiveTab(navItems.find((i) => i.href === href)?.name || "");
+          // Update active tab based on the navigation item
+          const navItem = navItems.find(
+            (i) => i.href === href || i.href === hash || i.href === "/" + hash,
+          );
+          if (navItem) {
+            setActiveTab(navItem.name);
+          }
         }
       } else {
-        navigate("/" + href);
+        navigate("/" + hash);
       }
     }
   };
@@ -131,7 +141,7 @@ const Navbar: Component = () => {
           <div class="hidden md:block z-10">
             <button
               onClick={(e) =>
-                scrollToSection(e as unknown as Event, "#contact")
+                scrollToSection(e as unknown as Event, "/#contact")
               }
               class="cursor-pointer px-5 py-2 bg-slate-900 border border-slate-700 text-slate-300 rounded-lg font-semibold text-sm hover:border-blue-500/50 hover:text-blue-400 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all flex items-center gap-2 group/btn"
             >
@@ -179,7 +189,7 @@ const Navbar: Component = () => {
             </For>
             <button
               onClick={(e) =>
-                scrollToSection(e as unknown as Event, "#contact")
+                scrollToSection(e as unknown as Event, "/#contact")
               }
               class="cursor-pointer mt-2 w-full py-3 bg-slate-800 border border-slate-700 text-emerald-400 rounded-lg font-bold shadow-lg font-mono flex items-center justify-center gap-2"
             >
