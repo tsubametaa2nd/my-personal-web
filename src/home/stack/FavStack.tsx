@@ -71,7 +71,7 @@ const FavStack: Component = () => {
           <div class="relative w-20 h-24 sm:w-24 sm:h-28 md:w-32 md:h-32 group">
             <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-white/5 backdrop-blur-md border border-white/5 shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:border-white/50 group-hover:bg-white/10 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]">
               <img
-                src="/assets/expressjs.svg"
+                src="/assets/stack/expressjs.svg"
                 alt="Express"
                 class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all invert opacity-80 group-hover:opacity-100"
                 style="filter: invert(1);"
