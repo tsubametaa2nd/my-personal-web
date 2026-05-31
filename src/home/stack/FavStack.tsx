@@ -8,21 +8,21 @@ const FavStack: Component = () => {
   const frameworks = [
     {
       name: "Astro",
-      icon: "/assets/astro.svg",
+      icon: "/assets/stack/astro.svg",
       color: "hover:shadow-orange-500/50",
       border: "hover:border-orange-500/50",
       bg: "hover:bg-orange-500/10",
     },
     {
       name: "Vue",
-      icon: "/assets/vue.svg",
+      icon: "/assets/stack/vue.svg",
       color: "hover:shadow-emerald-500/50",
       border: "hover:border-emerald-500/50",
       bg: "hover:bg-emerald-500/10",
     },
     {
       name: "React",
-      icon: "/assets/react.svg",
+      icon: "/assets/stack/react.svg",
       color: "hover:shadow-blue-500/50",
       border: "hover:border-blue-500/50",
       bg: "hover:bg-blue-500/10",

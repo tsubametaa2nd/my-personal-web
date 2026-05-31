@@ -4,14 +4,14 @@ import FavStack from "./FavStack";
 
 const StackSection: Component = () => {
   const otherSkills = [
-    { name: "Figma", icon: "/assets/figma.svg", category: "Tool" },
-    { name: "Astro", icon: "/assets/astro.svg", category: "Framework" },
-    { name: "React", icon: "/assets/react.svg", category: "Framework" },
-    { name: "Vue", icon: "/assets/vue.svg", category: "Framework" },
-    { name: "TypeScript", icon: "/assets/ts.svg", category: "Language" },
-    { name: "Go", icon: "/assets/go.svg", category: "Language" },
-    { name: "Cassandra", icon: "/assets/cassandra.svg", category: "Database" },
-    { name: "GitHub", icon: "/assets/github.svg", category: "Tool" },
+    { name: "Figma", icon: "/assets/stack/figma.svg", category: "Tool" },
+    { name: "Astro", icon: "/assets/stack/astro.svg", category: "Framework" },
+    { name: "React", icon: "/assets/stack/react.svg", category: "Framework" },
+    { name: "Vue", icon: "/assets/stack/vue.svg", category: "Framework" },
+    { name: "TypeScript", icon: "/assets/stack/ts.svg", category: "Language" },
+    { name: "Go", icon: "/assets/stack/go.svg", category: "Language" },
+    { name: "Cassandra", icon: "/assets/stack/cassandra.svg", category: "Database" },
+    { name: "GitHub", icon: "/assets/stack/github.svg", category: "Tool" },
   ];
 
   return (
