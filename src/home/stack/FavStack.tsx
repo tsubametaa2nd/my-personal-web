@@ -56,7 +56,7 @@ const FavStack: Component = () => {
           <div class="relative w-20 h-24 sm:w-24 sm:h-28 md:w-32 md:h-32 group">
             <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-white/5 backdrop-blur-md border border-white/5 shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:border-green-500/50 group-hover:bg-green-500/10 group-hover:shadow-[0_0_20px_rgba(34,197,94,0.3)]">
               <img
-                src="/assets/mongodb.svg"
+                src="/assets/stack/mongodb.svg"
                 alt="MongoDB"
                 class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 group-hover:drop-shadow-[0_0_10px_rgba(34,197,94,0.5)] transition-all"
               />
@@ -127,7 +127,7 @@ const FavStack: Component = () => {
           <div class="relative w-20 h-24 sm:w-24 sm:h-28 md:w-32 md:h-32 group">
             <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 sm:gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-white/5 backdrop-blur-md border border-white/5 shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/10 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]">
               <img
-                src="/assets/nodejs.svg"
+                src="/assets/stack/nodejs.svg"
                 alt="Node.js"
                 class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 group-hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.5)] transition-all"
               />
